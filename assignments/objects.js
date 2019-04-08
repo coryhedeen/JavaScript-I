@@ -31,7 +31,7 @@ const kennan = {
   "email": "kdiben1@tinypic.com",
   "gender": "M",
   "speak": function(){
-    return "Hello, my name is Kennan!"
+    return "Hello, my name is Kennan!";
   }
 }
 
@@ -95,39 +95,36 @@ console.log(antonietta.multiply(3,4));
 // 3. Nest a grandchild object in the child object with properties for name and age.  The name will be Sam and the age will be 30
 // 4. Give each of the objects the ability to speak their names using the this keyword.
 
-const george = {
-age: 50,
-name: "George",
-speak: function(){
-  return "Hello, my name is " + this.name + ".";
-}
-}
-
-const sam = {
-  age: 30,
-  name: "Sam",
-  speak: function(){
-    return "Hello, my name is " + this.name + ".";
-  }
-}
-
 
 const parent = {
   name: "Susan",
   age: 70,
-  child: george,
-  grandchild: sam,
   speak: function(){
     return "Hello, my name is " + this.name + ".";
+  },
+  child: {
+  age: 50,
+  name: "George",
+  speak: function(){
+    return "Hello, my name is " + this.name + ".";
+  },
+  grandchild: {
+    age: 30,
+    name: "Sam",
+    speak: function(){
+      return "Hello, my name is " + this.name + ".";
+    }
+  }
   }
 }
 
 console.log(parent.name);
-console.log(george.name);
-console.log(sam);
+console.log(parent.child.age);
+console.log(parent.child.grandchild.name, parent.child.grandchild.age);
 console.log(parent.speak());
 console.log(parent.child.speak());
-console.log(parent.grandchild.speak());
+console.log(parent.child.grandchild.speak());
+
 // Log the parent object's name
 
 // Log the child's age
